@@ -2,7 +2,7 @@
 // Drop into src/App.jsx (Vite + React + Tailwind)
 import './index.css';
 import profilePic from './assets/me.jpeg';
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Routes, Route, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 
 function CosmicBackground() {
@@ -86,7 +86,7 @@ function Home() {
       </div>
 
       <a
-        href="/KatlegoMagabane-CV.pdf"
+        href="KatlegoMagabane-CV.pdf"
         download
         className="mb-10 px-8 py-3 rounded-full border border-slate-600 text-slate-200 hover:bg-slate-800 transition"
       >
