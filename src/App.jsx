@@ -27,7 +27,7 @@ function NavButton({ to, label }) {
 
 function Navbar() {
   return (
-    <nav className="fixed top-0 w-full z-50 backdrop-blur bg-slate-900/70 border-b border-slate-800">
+    <nav className="fixed top-0 w-full z-50 backdrop-blur bg-slate-900/70 border-b border-slate-800 h-16 md:h-20">
       <div className="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-center gap-4">
         <NavButton label="Home" to="/" />
         <NavButton label="About" to="/about" />
@@ -39,9 +39,11 @@ function Navbar() {
   );
 }
 
+
 function Section({ title, children }) {
   return (
-    <section className="py-28 px-6 max-w-5xl mx-auto">
+    
+    <section className="pt-28 md:pt-32 pb-16 px-6 max-w-5xl mx-auto">
       <h2 className="text-3xl md:text-4xl font-serif text-slate-200 mb-12 text-center">
         {title}
       </h2>
@@ -75,7 +77,7 @@ function Home() {
       </h1>
 
       <p className="text-xl max-w-xl text-slate-400 mb-8">
-        Quantitative Analyst & Developer BSc Hons Applied Mathematics| BSc Computer Science<br />
+        <b>Quantitative Analyst & Developer</b><br /> BSc Hons Applied Mathematics| BSc Computer Science<br />
         Building robust software solutions driven by mathematical models.
       </p>
 
@@ -112,7 +114,7 @@ function About() {
         <div>
           <img
             src={images[index]}
-            className="rounded-xl border border-slate-700 w-full h-96 object-cover"
+              className="rounded-xl border border-slate-700 w-full h-64 md:h-96 object-cover"
           />
           <div className="flex justify-between mt-4">
             <button
@@ -153,6 +155,13 @@ function Portfolio() {
         <Card title="Plant Sales Web App">
           <p className="text-slate-400">Engineered a full-stack Single Page Application from scratch to master web fundamentals. Built a custom DOM-based state management system using Vanilla JavaScript and CSS. Developed a PHP backend to handle database interactions, implementing secure password hashing and data sanitization protocols.</p>
         </Card>
+        <Card title="Airbnb Market Analysis">
+          <p className="text-slate-400">Built an end-to-end data pipeline to analyze host professionalization trends. 
+            Automated ETL processes using Bash and Python to load data into a PostgreSQL database. 
+            Developed geospatial heatmaps and statistical visualizations to compare pricing 
+            dynamics between private and professional hosts.
+          </p>
+</Card>
       </div>
     </Section>
   );
