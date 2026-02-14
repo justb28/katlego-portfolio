@@ -52,14 +52,56 @@ function Section({ title, children }) {
   );
 }
 
-function Card({ title, children }) {
+function Card({ title, children, link }) {
+  const CardWrapper = link ? "a" : "div";
+
   return (
-    <div className="bg-slate-900 p-6 rounded-xl border border-slate-800">
-      <h3 className="text-xl font-serif text-slate-100 mb-2">{title}</h3>
-      {children}
-    </div>
+    <CardWrapper
+      href={link}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block bg-slate-900 p-6 rounded-xl border border-slate-800 
+                 hover:border-slate-600 hover:shadow-xl hover:shadow-slate-900/40
+                 transition-all duration-300 hover:-translate-y-1"
+    >
+      <div className="flex justify-between items-start mb-2">
+        <h3 className="text-xl font-serif text-slate-100 group-hover:text-white transition">
+          {title}
+        </h3>
+
+        {link && (
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 24 24"
+            className="w-5 h-5 text-slate-500 group-hover:text-white transition"
+          >
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.113.82-.26.82-.577 
+                     0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61
+                     -.546-1.385-1.333-1.755-1.333-1.755-1.09-.745.082-.73.082-.73
+                     1.205.085 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 
+                     3.492.998.108-.776.418-1.305.76-1.605-2.665-.3-5.466-1.333-5.466-5.93 
+                     0-1.31.468-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 
+                     0 0 1.005-.322 3.3 1.23a11.49 11.49 0 013.003-.404 
+                     c1.02.005 2.045.138 3.003.404 
+                     2.28-1.552 3.285-1.23 3.285-1.23 
+                     .645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 
+                     1.23 3.22 0 4.61-2.805 5.625-5.475 5.92 
+                     .435.375.81 1.096.81 2.215 
+                     0 1.6-.015 2.89-.015 3.285 
+                     0 .315.21.694.825.576C20.565 21.795 24 17.295 24 12 
+                     24 5.37 18.63 0 12 0z" />
+          </svg>
+        )}
+      </div>
+
+      <div className="text-slate-400 group-hover:text-slate-300 transition">
+        {children}
+      </div>
+    </CardWrapper>
   );
 }
+
 
 function Home() {
   return (
@@ -145,20 +187,20 @@ function Portfolio() {
   return (
     <Section title="Portfolio">
       <div className="grid md:grid-cols-3 gap-6">
-        <Card title="ML Honours Project">
+        <Card title="ML Honours Project" link="https://github.com/justb28/PestNet">
           <p className="text-slate-400">
             Developed a U-Net Convolutional Neural Network for semantic segmentation of maize crops. Optimized the model for pest detection in high-noise environments using Python and PyTorch.</p>
         </Card>
-        <Card title="Android Strategy Game (Python-Based)">
-          <p className="text-slate-400">Developed a fully functional mobile application deployed on Android. Architected the core game logic and win-condition algorithms using Python, ensuring efficient state evaluation. Designed a custom, responsive UI to interface seamlessly with the backend logic.</p>
+        <Card title="Android Strategy Game (Java-Based)" link="https://github.com/Wakag/CS102">
+          <p className="text-slate-400">Developed a fully functional mobile application deployed on Android. Architected the core game logic and win-condition algorithms using Java, ensuring efficient state evaluation. Designed a custom, responsive UI to interface seamlessly with the backend logic.</p>
         </Card>
-        <Card title="Plant Sales Web App">
+        <Card title="Plant Sales Web App" link="https://github.com/MashPash/cultivate-webapp">
           <p className="text-slate-400">Engineered a full-stack Single Page Application from scratch to master web fundamentals. Built a custom DOM-based state management system using Vanilla JavaScript and CSS. Developed a PHP backend to handle database interactions, implementing secure password hashing and data sanitization protocols.</p>
         </Card>
-        <Card title="Airbnb Market Analysis">
-          <p className="text-slate-400">Built an end-to-end data pipeline to analyze host professionalization trends. 
-            Automated ETL processes using Bash and Python to load data into a PostgreSQL database. 
-            Developed geospatial heatmaps and statistical visualizations to compare pricing 
+        <Card title="Airbnb Market Analysis" link="https://github.com/justb28/airbnb-data-analysis">
+          <p className="text-slate-400">Built an end-to-end data pipeline to analyze host professionalization trends.
+            Automated ETL processes using Bash and Python to load data into a PostgreSQL database.
+            Developed geospatial heatmaps and statistical visualizations to compare pricing
             dynamics between private and professional hosts.
           </p>
 </Card>
